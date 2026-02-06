@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Password Cluster",
+  "version": "0.1.0",
+  "description": "Guided password rotation companion.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Password Cluster"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "tabs", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "components": [
+    {
+      "name": "Button",
+      "variants": ["Primary", "Secondary", "Ghost", "Destructive"],
+      "sizes": ["S", "M", "L"],
+      "states": ["Default", "Hover", "Active", "Disabled", "Loading"],
+      "props": ["iconLeft", "iconRight", "fullWidth"],
+      "tokens": {
+        "font": "global.font.ui",
+        "radius": "global.radius.md",
+        "shadow": "global.shadow.soft",
+        "spacingX": "global.spacing.16",
+        "spacingY": "global.spacing.12"
+      }
+    },
+    {
+      "name": "Input",
+      "variants": ["Default", "Search", "Secure"],
+      "sizes": ["M", "L"],
+      "states": ["Default", "Focus", "Error", "Disabled"],
+      "props": ["leadingIcon", "trailingIcon", "helperText"],
+      "tokens": {
+        "radius": "global.radius.md",
+        "border": "semantic.color.border.default",
+        "focusRing": "global.shadow.focus"
+      }
+    },
+    {
+      "name": "Badge",
+      "variants": ["Risk", "Status", "Mode"],
+      "sizes": ["S", "M"],
+      "states": ["Default", "Muted"],
+      "props": ["icon"],
+      "tokens": {
+        "radius": "global.radius.sm",
+        "fontSize": "global.fontSize.micro"
+      }
+    },
+    {
+      "name": "StatusPill",
+      "variants": ["Auto", "Guided", "Manual", "Blocked"],
+      "sizes": ["M"],
+      "states": ["Default"],
+      "props": ["dot"],
+      "tokens": {
+        "radius": "global.radius.xl",
+        "fontSize": "global.fontSize.micro"
+      }
+    },
+    {
+      "name": "Card",
+      "variants": ["Default", "Glass", "Outline"],
+      "sizes": ["Auto"],
+      "states": ["Default", "Hover"],
+      "props": ["header", "footer"],
+      "tokens": {
+        "radius": "global.radius.lg",
+        "shadow": "global.shadow.card"
+      }
+    },
+    {
+      "name": "Table",
+      "variants": ["Vault", "Queue"],
+      "sizes": ["Auto"],
+      "states": ["Default", "RowHover", "RowSelected"],
+      "props": ["checkbox", "inlineActions", "bulkBar"]
+    },
+    {
+      "name": "Drawer",
+      "variants": ["Right"],
+      "sizes": ["360px"],
+      "states": ["Open", "Closed"],
+      "props": ["header", "footer"]
+    },
+    {
+      "name": "Modal",
+      "variants": ["Default", "Destructive"],
+      "sizes": ["S", "M", "L"],
+      "states": ["Open", "Closed"]
+    },
+    {
+      "name": "Gauge",
+      "variants": ["RiskScore"],
+      "sizes": ["Default"],
+      "states": ["Animated", "Static"]
+    },
+    {
+      "name": "ProgressStepper",
+      "variants": ["Linear", "Dots"],
+      "sizes": ["Default"],
+      "states": ["Default", "Running", "Paused"]
+    },
+    {
+      "name": "AutomationViewport",
+      "variants": ["Embedded", "Detached"],
+      "sizes": ["Flexible"],
+      "states": ["Loading", "Active", "Paused", "Error"]
+    },
+    {
+      "name": "SideNav",
+      "variants": ["Default"],
+      "sizes": ["240px"],
+      "states": ["Collapsed", "Expanded", "ActiveItem"]
+    },
+    {
+      "name": "TopBar",
+      "variants": ["Default"],
+      "sizes": ["56px"],
+      "states": ["Default", "SearchActive"]
+    },
+    {
+      "name": "Toast",
+      "variants": ["Info", "Success", "Warning", "Error"],
+      "sizes": ["S"],
+      "states": ["Visible", "Hidden"]
+    },
+    {
+      "name": "EmptyState",
+      "variants": ["VaultEmpty", "RiskClear", "QueueEmpty"],
+      "sizes": ["Default"],
+      "states": ["Default"]
+    },
+    {
+      "name": "RiskHeatmap",
+      "variants": ["Default"],
+      "sizes": ["Auto"],
+      "states": ["Interactive", "Static"]
+    },
+    {
+      "name": "RotationQueueList",
+      "variants": ["Default"],
+      "sizes": ["Auto"],
+      "states": ["Running", "Paused", "Complete", "Error"]
+    }
+  ]
+}

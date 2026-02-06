@@ -1,0 +1,19 @@
+{
+  "name": "@password-cluster/core",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "vite": "7.3.1"
+  }
+}

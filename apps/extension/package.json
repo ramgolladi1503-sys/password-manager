@@ -1,0 +1,14 @@
+{
+  "name": "@password-cluster/extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "watch": "tsc -p tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.266",
+    "typescript": "^5.5.4"
+  }
+}

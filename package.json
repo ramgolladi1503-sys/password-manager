@@ -1,0 +1,21 @@
+{
+  "name": "password-cluster",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm --prefix packages/core install && npm --prefix packages/protocol install && npm --prefix apps/desktop install && npm --prefix apps/agent install && npm --prefix apps/extension install",
+    "dev:desktop": "npm --prefix apps/desktop run dev",
+    "dev:agent": "npm --prefix apps/agent run dev",
+    "build:extension": "npm --prefix apps/extension run build",
+    "test": "npm --prefix packages/core run test",
+    "test:ui": "playwright test",
+    "test:ui:headed": "playwright test --headed",
+    "test:flows": "node scripts/validate_flows_playwright.mjs",
+    "test:watch": "npm --prefix packages/core run test:watch",
+    "lint:flows": "python scripts/validate_flows.py",
+    "demo:e2e": "node apps/agent/scripts/demo_e2e.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "playwright": "^1.49.1"
+  }
+}

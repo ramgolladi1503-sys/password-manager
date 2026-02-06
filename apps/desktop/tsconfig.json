@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@password-cluster/core": ["../../packages/core/src/index.ts"],
+      "@password-cluster/protocol": ["../../packages/protocol/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

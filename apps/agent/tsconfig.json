@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@password-cluster/core": ["../../packages/core/src/index.ts"],
+      "@password-cluster/protocol": ["../../packages/protocol/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

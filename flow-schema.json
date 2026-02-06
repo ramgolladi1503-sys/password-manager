@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/flow-schema.json",
+  "title": "Password Rotation Flow Template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "domain",
+    "version",
+    "modeSupport",
+    "requires",
+    "bindings",
+    "steps"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 3
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "modeSupport": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["auto", "guided", "manual"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "requires": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authenticatedSession", "mfaSupported", "captchaHandled"],
+      "properties": {
+        "authenticatedSession": { "type": "boolean" },
+        "mfaSupported": { "type": "boolean" },
+        "captchaHandled": {
+          "type": "string",
+          "enum": ["pause", "manual", "ignore"]
+        },
+        "loginUrl": { "type": "string" }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z_][a-z0-9_]*$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "captchaDetected": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rateLimited": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "mfaPrompt": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/step" }
+    },
+    "verify": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/verifyStep" }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxAttempts": { "type": "integer", "minimum": 1 },
+        "cooldownSeconds": { "type": "integer", "minimum": 0 },
+        "lockoutGuard": { "type": "boolean" }
+      }
+    },
+    "telemetry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "emitEvents": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "mode", "action"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "label": { "type": "string" },
+        "mode": {
+          "type": "string",
+          "enum": ["auto", "guided", "manual"]
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "navigate",
+            "click",
+            "type",
+            "wait_for",
+            "pause_for_user",
+            "select",
+            "assert_text",
+            "assert_element"
+          ]
+        },
+        "selector": { "type": "string" },
+        "target": { "type": "string" },
+        "value": { "type": "string" },
+        "condition": { "type": "string" },
+        "timeoutSeconds": { "type": "number", "minimum": 0 },
+        "waitForNavigation": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "action": { "const": "navigate" } } },
+          "then": { "required": ["target"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "click" } } },
+          "then": { "required": ["selector"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "type" } } },
+          "then": { "required": ["selector", "value"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "select" } } },
+          "then": { "required": ["selector", "value"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "wait_for" } } },
+          "then": {
+            "anyOf": [
+              { "required": ["selector"] },
+              { "required": ["condition"] }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "action": { "const": "assert_text" } } },
+          "then": { "required": ["selector", "value"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "assert_element" } } },
+          "then": { "required": ["selector"] }
+        }
+      ]
+    },
+    "verifyStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "action"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "label": { "type": "string" },
+        "action": {
+          "type": "string",
+          "enum": [
+            "assert_login_fails",
+            "assert_login_succeeds",
+            "assert_text",
+            "assert_element"
+          ]
+        },
+        "using": { "type": "string" },
+        "selector": { "type": "string" },
+        "value": { "type": "string" },
+        "timeoutSeconds": { "type": "number", "minimum": 0 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": { "enum": ["assert_login_fails", "assert_login_succeeds"] }
+            }
+          },
+          "then": { "required": ["using"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "assert_text" } } },
+          "then": { "required": ["selector", "value"] }
+        },
+        {
+          "if": { "properties": { "action": { "const": "assert_element" } } },
+          "then": { "required": ["selector"] }
+        }
+      ]
+    }
+  }
+}

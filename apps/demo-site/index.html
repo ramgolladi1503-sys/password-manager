@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Password Cluster Demo Site</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-view="login">
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo"></span>
+          <div>
+            <p class="brand-name">Atlas Workspace</p>
+            <p class="brand-sub">Password rotation demo environment</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <span class="pill">Demo Mode</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="login-panel" class="panel">
+          <div>
+            <h1>Secure access</h1>
+            <p class="muted">Use your demo credentials to enter.</p>
+            <form id="login-form" class="form-grid">
+              <label>
+                Email
+                <input id="login-email" type="email" placeholder="demo@password.cluster" required />
+              </label>
+              <label>
+                Password
+                <input id="login-password" type="password" placeholder="••••••••" required />
+              </label>
+              <div id="login-error" class="form-error" role="alert" hidden></div>
+              <button id="login-submit" type="submit" class="btn primary">Sign in</button>
+            </form>
+          </div>
+          <aside class="side-card">
+            <h3>Rotation Center</h3>
+            <p class="muted">
+              This demo site is built to validate the auto-fill, click, and confirmation loop.
+            </p>
+            <div class="cred-card">
+              <p class="label">Default User</p>
+              <p class="value">demo@password.cluster</p>
+              <p class="label">Default Password</p>
+              <p class="value">OldPass!234</p>
+            </div>
+          </aside>
+        </section>
+
+        <section id="dashboard-panel" class="panel" hidden>
+          <div class="panel-stack">
+            <div class="hero-card">
+              <h2>Welcome back</h2>
+              <p class="muted">Your workspace security posture is stable.</p>
+              <div class="hero-actions">
+                <button id="nav-settings" class="btn secondary" type="button">
+                  Open Settings
+                </button>
+              </div>
+            </div>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <p class="label">Active Sessions</p>
+                <p class="value">2</p>
+              </div>
+              <div class="stat-card">
+                <p class="label">Risk Signals</p>
+                <p class="value">Low</p>
+              </div>
+              <div class="stat-card">
+                <p class="label">Rotation Queue</p>
+                <p class="value">1 due</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="settings-panel" class="panel" hidden>
+          <div class="panel-stack">
+            <div class="settings-header">
+              <div>
+                <h2>Security Settings</h2>
+                <p class="muted">Update credentials and review protection.</p>
+              </div>
+              <button id="nav-dashboard" class="btn ghost" type="button">Back to Dashboard</button>
+            </div>
+            <div class="tab-row">
+              <button id="password-tab" class="tab active" type="button">Password</button>
+              <button class="tab" type="button" disabled>Sessions</button>
+              <button class="tab" type="button" disabled>Devices</button>
+            </div>
+            <div id="password-panel" class="panel-card" hidden>
+              <h3>Change password</h3>
+              <form id="password-form" class="form-grid">
+                <label>
+                  Current password
+                  <input id="current-password" type="password" required />
+                </label>
+                <label>
+                  New password
+                  <input id="new-password" type="password" required />
+                </label>
+                <label>
+                  Confirm new password
+                  <input id="confirm-password" type="password" required />
+                </label>
+                <div id="password-error" class="form-error" role="alert" hidden></div>
+                <button id="save-password" class="btn primary" type="submit">Save changes</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast-success" class="toast success" role="status">Password updated</div>
+    <div id="toast-error" class="toast error" role="alert"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Cluster</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup">
+      <h1>Password Cluster</h1>
+      <p class="muted">Agent: <span id="status">Connecting</span></p>
+      <p class="muted">Domain: <span id="domain">Detecting</span></p>
+
+      <div class="section">
+        <label for="flowSelect">Flow</label>
+        <select id="flowSelect"></select>
+        <div class="btn-row">
+          <button id="rotateBtn">Rotate</button>
+          <button id="refreshBtn" class="ghost">Refresh</button>
+        </div>
+      </div>
+
+      <div class="log" id="log"></div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

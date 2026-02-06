@@ -1,0 +1,126 @@
+{
+  "$schema": "https://tokens.studio/schema.json",
+  "global": {
+    "color": {
+      "ink": {
+        "900": { "value": "#0E151B" },
+        "800": { "value": "#152029" },
+        "700": { "value": "#1D2B35" },
+        "600": { "value": "#2A3B47" },
+        "500": { "value": "#3A4E5E" }
+      },
+      "mist": {
+        "200": { "value": "#DDE6ED" },
+        "100": { "value": "#EEF3F7" }
+      },
+      "signal": {
+        "good": { "value": "#2FA777" },
+        "warn": { "value": "#E3A12F" },
+        "risk": { "value": "#E0554E" },
+        "info": { "value": "#2C7BE5" }
+      },
+      "accent": {
+        "amber": { "value": "#F6B352" },
+        "teal": { "value": "#35B3A5" },
+        "cream": { "value": "#F7F3EA" }
+      },
+      "white": { "value": "#FFFFFF" },
+      "black": { "value": "#000000" }
+    },
+    "font": {
+      "display": { "value": "Fraunces" },
+      "ui": { "value": "IBM Plex Sans" },
+      "mono": { "value": "JetBrains Mono" }
+    },
+    "fontWeight": {
+      "regular": { "value": 400 },
+      "medium": { "value": 500 },
+      "semibold": { "value": 600 }
+    },
+    "fontSize": {
+      "displayXL": { "value": 40 },
+      "h1": { "value": 28 },
+      "h2": { "value": 22 },
+      "h3": { "value": 18 },
+      "body": { "value": 15 },
+      "small": { "value": 13 },
+      "micro": { "value": 11 }
+    },
+    "lineHeight": {
+      "displayXL": { "value": 48 },
+      "h1": { "value": 34 },
+      "h2": { "value": 28 },
+      "h3": { "value": 24 },
+      "body": { "value": 22 },
+      "small": { "value": 18 },
+      "micro": { "value": 16 }
+    },
+    "letterSpacing": {
+      "displayXL": { "value": -0.5 },
+      "h1": { "value": -0.3 },
+      "h2": { "value": 0 },
+      "h3": { "value": 0 },
+      "body": { "value": 0 }
+    },
+    "spacing": {
+      "4": { "value": 4 },
+      "8": { "value": 8 },
+      "12": { "value": 12 },
+      "16": { "value": 16 },
+      "24": { "value": 24 },
+      "32": { "value": 32 },
+      "48": { "value": 48 },
+      "64": { "value": 64 }
+    },
+    "radius": {
+      "xs": { "value": 4 },
+      "sm": { "value": 6 },
+      "md": { "value": 12 },
+      "lg": { "value": 16 },
+      "xl": { "value": 24 }
+    },
+    "shadow": {
+      "card": { "value": "0 10px 30px rgba(12, 20, 28, 0.12)" },
+      "soft": { "value": "0 4px 12px rgba(12, 20, 28, 0.10)" },
+      "focus": { "value": "0 0 0 2px rgba(44, 123, 229, 0.45)" }
+    },
+    "opacity": {
+      "disabled": { "value": 0.5 },
+      "muted": { "value": 0.7 }
+    },
+    "motion": {
+      "fast": { "value": "120ms" },
+      "base": { "value": "200ms" },
+      "slow": { "value": "400ms" }
+    }
+  },
+  "semantic": {
+    "color": {
+      "bg": {
+        "app": { "value": "{global.color.mist.100}" },
+        "card": { "value": "{global.color.white}" },
+        "drawer": { "value": "{global.color.white}" }
+      },
+      "text": {
+        "primary": { "value": "{global.color.ink.900}" },
+        "secondary": { "value": "{global.color.ink.600}" },
+        "muted": { "value": "{global.color.ink.500}" },
+        "inverse": { "value": "{global.color.white}" }
+      },
+      "border": {
+        "default": { "value": "{global.color.mist.200}" },
+        "strong": { "value": "{global.color.ink.600}" }
+      },
+      "status": {
+        "good": { "value": "{global.color.signal.good}" },
+        "warn": { "value": "{global.color.signal.warn}" },
+        "risk": { "value": "{global.color.signal.risk}" },
+        "info": { "value": "{global.color.signal.info}" }
+      },
+      "accent": {
+        "primary": { "value": "{global.color.accent.teal}" },
+        "secondary": { "value": "{global.color.accent.amber}" }
+      }
+    }
+  }
+}

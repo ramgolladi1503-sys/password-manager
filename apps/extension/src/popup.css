@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background: #f7f3ea;
+  color: #0e151b;
+}
+
+.popup {
+  width: 320px;
+  padding: 16px;
+}
+
+h1 {
+  font-family: "Fraunces", serif;
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.muted {
+  color: #3a4e5e;
+  font-size: 12px;
+}
+
+.section {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #dde6ed;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  background: #35b3a5;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid #dde6ed;
+}
+
+.log {
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  max-height: 120px;
+  overflow: auto;
+  border-top: 1px solid #dde6ed;
+  padding-top: 8px;
+}
