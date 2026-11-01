@@ -6,7 +6,9 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Playwright 1.58.1 does not support Ubuntu 26.04, currently selected by
+    # ubuntu-latest. Pin a supported LTS image so browser tests remain runnable.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
